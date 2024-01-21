@@ -13,6 +13,8 @@ import Navbar from './components/Navbar';
 
 import './App.css';
 
+const api_url = "https://cinepedia-dsrv.onrender.com/api/movies";
+
 //<Route path="/" element={<Home />} />
 
 function App() {

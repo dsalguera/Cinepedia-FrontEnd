@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+const api_url = "https://cinepedia-dsrv.onrender.com/api/movies";
 
 const MovieTable = () => {
   const [movieData, setMovieData] = useState(null);
@@ -6,7 +7,7 @@ const MovieTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:2090/api/movies'); // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint
+        const response = await fetch(api_url); // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint
         const data = await response.json();
         setMovieData(data);
       } catch (error) {

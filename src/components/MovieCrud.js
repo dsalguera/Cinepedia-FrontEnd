@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import MovieForm from './MovieForm';
 
+const api_url = "https://cinepedia-dsrv.onrender.com/api/movies";
+//const api_url = "http://localhost:2090/api/movies";
+
 const MovieCrud = () => {
   const [movies, setMovies] = useState([]);
   const [formData, setFormData] = useState({
@@ -21,7 +24,7 @@ const MovieCrud = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch('http://localhost:2090/api/movies');
+        const response = await fetch(api_url);
         if (response.ok) {
           const data = await response.json();
           console.log('Fetched movies:', data);
@@ -53,7 +56,7 @@ const MovieCrud = () => {
 
   const handleCreate = async () => {
     try {
-      const response = await fetch('http://localhost:2090/api/movies', {
+      const response = await fetch(api_url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +67,7 @@ const MovieCrud = () => {
       if (response.ok) {
         console.log('Movie created successfully');
         // Fetch the updated list of movies after creation
-        const updatedMoviesResponse = await fetch('http://localhost:2090/api/movies');
+        const updatedMoviesResponse = await fetch(api_url);
         if (updatedMoviesResponse.ok) {
           const updatedMoviesData = await updatedMoviesResponse.json();
           setMovies(updatedMoviesData.results || []); // Update state with the new movie list
@@ -108,7 +111,7 @@ const MovieCrud = () => {
 
   const handleUpdate = async (id) => {
     try {
-      const response = await fetch(`http://localhost:2090/api/movies/${id}`, {
+      const response = await fetch(api_url+'/${id}', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -119,7 +122,7 @@ const MovieCrud = () => {
       if (response.ok) {
         console.log('Movie updated successfully');
         // Fetch the updated list of movies after editing
-        const updatedMoviesResponse = await fetch('http://localhost:2090/api/movies');
+        const updatedMoviesResponse = await fetch(api_url);
         if (updatedMoviesResponse.ok) {
           const updatedMoviesData = await updatedMoviesResponse.json();
           setMovies(updatedMoviesData.results || []); // Update state with the new movie list
@@ -150,14 +153,14 @@ const MovieCrud = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:2090/api/movies/${id}`, {
+      const response = await fetch(api_url+'/${id}', {
         method: 'DELETE',
       });
 
       if (response.ok) {
         console.log('Movie deleted successfully');
         // Fetch the updated list of movies after deletion
-        const updatedMoviesResponse = await fetch('http://localhost:2090/api/movies');
+        const updatedMoviesResponse = await fetch(api_url);
         if (updatedMoviesResponse.ok) {
           const updatedMoviesData = await updatedMoviesResponse.json();
           setMovies(updatedMoviesData.results || []); // Update state with the new movie list
