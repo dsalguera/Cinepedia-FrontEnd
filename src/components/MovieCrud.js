@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MovieForm from './MovieForm';
 
-const api_url = "https://cinepedia-dsrv.onrender.com/api/movies";
-//const api_url = "http://localhost:2090/api/movies";
-
 const MovieCrud = () => {
   const [movies, setMovies] = useState([]);
   const [formData, setFormData] = useState({
@@ -24,17 +21,16 @@ const MovieCrud = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch(api_url);
+        const response = await fetch('https://cinepedia-dsrv.onrender.com/api/movies');
         if (response.ok) {
           const data = await response.json();
           console.log('Fetched movies:', data);
 
-          // Ensure data.results is an array before setting the state
           if (Array.isArray(data.results)) {
             setMovies(data.results);
           } else {
             console.error('Invalid data format. Expected an array.');
-            setMovies([]); // Set movies to an empty array to avoid the "movies.map is not a function" error
+            setMovies([]);
           }
         } else {
           console.error('Failed to fetch movies');
@@ -56,7 +52,7 @@ const MovieCrud = () => {
 
   const handleCreate = async () => {
     try {
-      const response = await fetch(api_url, {
+      const response = await fetch('https://cinepedia-dsrv.onrender.com/api/movies', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,15 +62,13 @@ const MovieCrud = () => {
 
       if (response.ok) {
         console.log('Movie created successfully');
-        // Fetch the updated list of movies after creation
-        const updatedMoviesResponse = await fetch(api_url);
+        const updatedMoviesResponse = await fetch('https://cinepedia-dsrv.onrender.com/api/movies');
         if (updatedMoviesResponse.ok) {
           const updatedMoviesData = await updatedMoviesResponse.json();
-          setMovies(updatedMoviesData.results || []); // Update state with the new movie list
+          setMovies(updatedMoviesData.results || []);
         } else {
           console.error('Failed to fetch updated movies after creation');
         }
-        // Reset form data
         setFormData({
           title: '',
           genre: '',
@@ -96,7 +90,6 @@ const MovieCrud = () => {
   const handleEdit = (movie) => {
     setEditing(true);
     setEditingMovie(movie);
-    // Optionally, you can pre-fill a form with the movie details for editing.
     setFormData({
       title: movie.title,
       genre: movie.genre,
@@ -111,7 +104,7 @@ const MovieCrud = () => {
 
   const handleUpdate = async (id) => {
     try {
-      const response = await fetch(api_url+'/${id}', {
+      const response = await fetch(`https://cinepedia-dsrv.onrender.com/api/movies/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -121,18 +114,15 @@ const MovieCrud = () => {
 
       if (response.ok) {
         console.log('Movie updated successfully');
-        // Fetch the updated list of movies after editing
-        const updatedMoviesResponse = await fetch(api_url);
+        const updatedMoviesResponse = await fetch('https://cinepedia-dsrv.onrender.com/api/movies');
         if (updatedMoviesResponse.ok) {
           const updatedMoviesData = await updatedMoviesResponse.json();
-          setMovies(updatedMoviesData.results || []); // Update state with the new movie list
+          setMovies(updatedMoviesData.results || []);
         } else {
           console.error('Failed to fetch updated movies after editing');
         }
-        // Reset editing state
         setEditing(false);
         setEditingMovie(null);
-        // Reset form data
         setFormData({
           title: '',
           genre: '',
@@ -153,17 +143,16 @@ const MovieCrud = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(api_url+'/${id}', {
+      const response = await fetch(`https://cinepedia-dsrv.onrender.com/api/movies/${id}`, {
         method: 'DELETE',
       });
 
       if (response.ok) {
         console.log('Movie deleted successfully');
-        // Fetch the updated list of movies after deletion
-        const updatedMoviesResponse = await fetch(api_url);
+        const updatedMoviesResponse = await fetch('https://cinepedia-dsrv.onrender.com/api/movies');
         if (updatedMoviesResponse.ok) {
           const updatedMoviesData = await updatedMoviesResponse.json();
-          setMovies(updatedMoviesData.results || []); // Update state with the new movie list
+          setMovies(updatedMoviesData.results || []);
         } else {
           console.error('Failed to fetch updated movies after deletion');
         }
