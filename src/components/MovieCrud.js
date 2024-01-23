@@ -166,26 +166,41 @@ const MovieCrud = () => {
 
   return (
     <div>
-      <h2>Movie List</h2>
-      <MovieForm
-        formData={formData}
-        handleChange={handleChange}
-        handleSubmit={editing ? () => handleUpdate(editingMovie.movie_id) : handleCreate}
-        buttonText={editing ? 'Update Movie' : 'Create Movie'}
-      />
-      {loading ? (
-        <p>Loading movies...</p>
-      ) : (
-        <ul>
-          {movies.map((movie) => (
-            <li key={movie.movie_id}>
-              <span>{movie.title}</span>
-              <button onClick={() => handleEdit(movie)}>Edit</button>
-              <button onClick={() => handleDelete(movie.movie_id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="flex flex-col md:flex-row">
+        <div className="md:w-1/2 mb-14">
+          <MovieForm
+            formData={formData}
+            handleChange={handleChange}
+            handleSubmit={editing ? () => handleUpdate(editingMovie.movie_id) : handleCreate}
+            buttonText={editing ? 'Update Movie' : 'Create Movie'}
+          />
+        </div>
+        <div className="md:w-1/2 mt-5 lg:mr-24 lg:my-10">
+          {loading ? (
+            <p>Loading movies...</p>
+          ) : (
+            <table className="w-full text-white">
+              <thead>
+                <tr className="bg-slate-950">
+                  <th className="py-2 px-4 border">Title</th>
+                  <th className="py-2 px-4 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {movies.map((movie) => (
+                  <tr key={movie.movie_id} className="hover:bg-slate-800">
+                    <td className="py-2 px-4 border">{movie.title}</td>
+                    <td className="py-2 px-4 border">
+                      <button className="bg-blue-500 text-white py-1 px-3 mx-2 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800" onClick={() => handleEdit(movie)}>Edit</button>
+                      <button className="bg-red-500 text-white py-1 px-3 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline-blue active:bg-red-800" onClick={() => handleDelete(movie.movie_id)}>Delete</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Movies from './components/Movies';
 import MovieCrud from './components/MovieCrud';
-import Navbar from './components/Navbar';
+import NavCinepedia from './components/NavCinepedia';
 
 import './App.css';
 
@@ -17,16 +17,18 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
-      <div className="">
-        <Navbar/>
+    <div className="bg-slate-900">
+    <Router >
+      
+        <NavCinepedia/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/manage" element={<MovieCrud />} />
         </Routes>
-      </div>
+      
     </Router>
+    </div>
     
   ); 
 }

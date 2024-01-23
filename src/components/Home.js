@@ -1,8 +1,10 @@
 // Home.js
 
 import React from 'react';
-import Header from '../components/Header';
 import MovieCard from './MovieCard';
+
+import Hero from './Hero';
+import Gallery from './Gallery';
 
 const Home = () => {
 
@@ -57,9 +59,13 @@ const Home = () => {
 
   return ( 
     <div>
-      <Header />
-      
-      <div className="">
+        <Hero/>
+        <Gallery/>
+    </div>
+  );
+
+  /* 
+  <div className="wrapper">
 
           <div className="">
             <h3 className="">All your movies and series, in one place.</h3>
@@ -75,11 +81,8 @@ const Home = () => {
             <button className="">Show all series</button>
           </div>
 
-
-          
       </div>
-    </div>
-  );
+  */
 }
 
 export default Home;
