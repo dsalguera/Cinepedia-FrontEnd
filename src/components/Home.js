@@ -3,9 +3,6 @@
 import React from 'react';
 import MovieCard from './MovieCard';
 
-import Hero from './Hero';
-import Gallery from './Gallery';
-
 const Home = () => {
 
   const movies = [
@@ -59,8 +56,75 @@ const Home = () => {
 
   return ( 
     <div>
-        <Hero/>
-        <Gallery/>
+        <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-center py-16 h-screen">
+          <h1 className="text-4xl font-bold mb-4">Cinepedia</h1>
+          <p className="text-lg">The place where you can stream and watch your favorite series and movies.</p>
+          {/* Add other content or components for the hero section */}
+        </div>
+
+        <div>
+          <h1>The best shows and series in one one click</h1>
+        </div>
+
+        {/* Movies */}
+
+        <div className="flex flex-wrap -mx-0">
+        <div className="w-1/2 md:w-1/3 lg:w-1/4 xl-1/4 px-4 mb-4">
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <img src="https://placekitten.com/300/200" alt="Card Image" className="mb-4 rounded" />
+            <h2 className="text-xl font-bold mb-2">Card 1</h2>
+            <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-full">Learn More</button>
+          </div>
+        </div>
+        <div className="w-1/2 md:w-1/3 lg:w-1/4 xl-1/4 px-4 mb-4">
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <img src="https://placekitten.com/300/200" alt="Card Image" className="mb-4 rounded" />
+            <h2 className="text-xl font-bold mb-2">Card 1</h2>
+            <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-full">Learn More</button>
+          </div>
+        </div>
+        <div className="w-1/2 md:w-1/3 lg:w-1/4 xl-1/4 px-4 mb-4">
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <img src="https://placekitten.com/300/200" alt="Card Image" className="mb-4 rounded" />
+            <h2 className="text-xl font-bold mb-2">Card 1</h2>
+            <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-full">Learn More</button>
+          </div>
+        </div>
+        <div className="w-1/2 md:w-1/3 lg:w-1/4 xl-1/4 px-4 mb-4">
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <img src="https://placekitten.com/300/200" alt="Card Image" className="mb-4 rounded" />
+            <h2 className="text-xl font-bold mb-2">Card 1</h2>
+            <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-full">Learn More</button>
+          </div>
+        </div>
+        <div className="w-1/2 md:w-1/3 lg:w-1/4 xl-1/4 px-4 mb-4">
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <img src="https://placekitten.com/300/200" alt="Card Image" className="mb-4 rounded" />
+            <h2 className="text-xl font-bold mb-2">Card 1</h2>
+            <p className="text-gray-700">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-full">Learn More</button>
+          </div>
+        </div>
+        
+
+      </div>
+
+
+
+        <div className="bg-slate-200 h-auto text-center py-16">
+           <h3>Can't find a Movie or a Serie? Send Us a Message!</h3><br/><br/>
+           <input type="text" placeholder="Your email here"/><br/><br/>
+           <textarea placeholder="Description"></textarea>
+        </div>
+
+        {/* Footer Code */}
+        <footer className="text-center text-white py-5">
+          <h3 className="mt-5">Cinepedia. All rights reserved TM 2024.</h3><br/><br/>
+        </footer>
     </div>
   );
 

@@ -166,7 +166,7 @@ const MovieCrud = () => {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row text-black">
         <div className="md:w-1/2 mb-14">
           <MovieForm
             formData={formData}

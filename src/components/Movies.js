@@ -21,12 +21,11 @@ const MovieTable = () => {
 
   return (
     <div>
-      <div className="">
-        <input type="text" className="" />
-        <button className="">Search</button>
+      
+      <div className="bg-transparent h-16 text-center py-3">
+        <input type="text" className="px-4 py-2 rounded-full mx-3" placeholder="Movie Title"/>
+        <button className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm md:text-base">Search</button>
       </div>
-
-
 
       <div className="container mx-auto mt-4">
         <div className="flex flex-wrap -mx-0">
@@ -43,10 +42,11 @@ const MovieTable = () => {
                 <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-full text-sm md:text-base">Watch</button>
               </div>
             </div>
-
           ))
         ) : (
-          <p>Loading...</p>
+          <div className="bg-blue-700 w-full h-16 rounded-full text-white text-center pt-5">
+            <p>Please while content is loading...</p>
+          </div>
         )}
         </div>
       </div>

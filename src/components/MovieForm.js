@@ -10,7 +10,7 @@ const MovieForm = ({ formData, handleChange, handleSubmit, buttonText }) => {
           name="title"
           value={formData.title}
           onChange={handleChange}
-          className="block w-full border rounded-md py-2 px-3 mt-1"
+          className="block w-full border rounded-full bg-transparent py-2 px-3 mt-1"
         />
       </label>
       <label className="block mb-2">
@@ -20,7 +20,7 @@ const MovieForm = ({ formData, handleChange, handleSubmit, buttonText }) => {
           name="genre"
           value={formData.genre}
           onChange={handleChange}
-          className="block w-full border rounded-md py-2 px-3 mt-1"
+          className="block w-full border rounded-full bg-transparent py-2 px-3 mt-1"
         />
       </label>
       <label className="block mb-2">
@@ -30,7 +30,7 @@ const MovieForm = ({ formData, handleChange, handleSubmit, buttonText }) => {
           name="year_released"
           value={formData.year_released}
           onChange={handleChange}
-          className="block w-full border rounded-md py-2 px-3 mt-1"
+          className="block w-full border rounded-full bg-transparent py-2 px-3 mt-1"
         />
       </label>
       <label className="block mb-2">
@@ -39,7 +39,7 @@ const MovieForm = ({ formData, handleChange, handleSubmit, buttonText }) => {
           name="sinopsis"
           value={formData.sinopsis}
           onChange={handleChange}
-          className="block w-full border rounded-md py-2 px-3 mt-1"
+          className="block w-full border rounded-xl bg-transparent py-2 px-3 mt-1"
         ></textarea>
       </label>
       <label className="block mb-2">
@@ -49,7 +49,7 @@ const MovieForm = ({ formData, handleChange, handleSubmit, buttonText }) => {
           name="director"
           value={formData.director}
           onChange={handleChange}
-          className="block w-full border rounded-md py-2 px-3 mt-1"
+          className="block w-full border rounded-full bg-transparent py-2 px-3 mt-1"
         />
       </label>
       <label className="block mb-2">
@@ -59,7 +59,7 @@ const MovieForm = ({ formData, handleChange, handleSubmit, buttonText }) => {
           name="casting"
           value={formData.casting}
           onChange={handleChange}
-          className="block w-full border rounded-md py-2 px-3 mt-1"
+          className="block w-full border rounded-full bg-transparent py-2 px-3 mt-1"
         />
       </label>
       <label className="block mb-2">
@@ -69,7 +69,7 @@ const MovieForm = ({ formData, handleChange, handleSubmit, buttonText }) => {
           name="rating"
           value={formData.rating}
           onChange={handleChange}
-          className="block w-full border rounded-md py-2 px-3 mt-1"
+          className="block w-full border rounded-full bg-transparent py-2 px-3 mt-1"
         />
       </label>
       <label className="block mb-2">
@@ -79,7 +79,7 @@ const MovieForm = ({ formData, handleChange, handleSubmit, buttonText }) => {
           name="cover_img"
           value={formData.cover_img}
           onChange={handleChange}
-          className="block w-full border rounded-md py-2 px-3 mt-1"
+          className="block w-full border rounded-full bg-transparent py-2 px-3 mt-1"
         />
       </label>
       <button

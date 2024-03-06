@@ -40,7 +40,7 @@ const NavCinepedia = () => {
               </div>
             )}
           </div>
-          <div className="hidden md:flex space-x-4">
+          <div className="hidden md:flex space-x-8 font-bold">
             {/* Show on larger screens */}
             <a href="/" className="text-white text-lg">Home</a>
             <a href="/movies" className="text-white text-lg">Movies</a>
